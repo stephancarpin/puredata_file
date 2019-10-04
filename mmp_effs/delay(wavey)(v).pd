@@ -1,4 +1,4 @@
-#N canvas 3 54 1264 683 10;
+#N canvas 0 51 1264 683 10;
 #X obj 101 101 cnv 15 184 114 empty empty wavey_lays 2 12 0 14 -204786
 -66577 0;
 #X obj 34 21 inlet~;
