@@ -1,0 +1,32 @@
+#N canvas 535 216 628 487 10;
+#X floatatom 163 47 5 0 0 0 - - -;
+#X floatatom 163 117 5 0 0 0 - - -;
+#X obj 163 85 expr (60/$f1)*1000;
+#X text 199 48 bpm;
+#X text 281 87 convert to ms;
+#X text 206 118 ms;
+#X obj 136 162 metro;
+#X obj 136 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 92 125 on/off;
+#X text 174 162 outputs bang every 'x' ms;
+#X obj 151 275 osc~ 800;
+#X obj 136 319 *~;
+#X obj 136 244 vline~;
+#X obj 136 358 output~;
+#X msg 136 195 1 20 \, 0 20 20;
+#X text 230 192 got to 1 (full volume) in 20 \, then go to zero (no
+volume) in 20 ms after waiting 20 ms;
+#X text 184 243 translate to audio rate signal;
+#X text 214 276 generate 800 hz sine tone;
+#X text 166 318 multiply sine tone by amplitude envelope;
+#X connect 0 0 2 0;
+#X connect 1 0 6 1;
+#X connect 2 0 1 0;
+#X connect 6 0 14 0;
+#X connect 7 0 6 0;
+#X connect 10 0 11 1;
+#X connect 11 0 13 0;
+#X connect 11 0 13 1;
+#X connect 12 0 11 0;
+#X connect 14 0 12 0;
