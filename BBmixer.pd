@@ -1,9 +1,9 @@
-#N canvas 44 104 1234 630 12;
+#N canvas 82 109 1234 630 12;
 #X obj 32 9 adc~ 1 2 3 4 5 6 7 8;
 #X obj 43 88 vsl 15 128 0.1 10 1 1 empty empty channel_1 0 -9 0 10
 -262130 -1 -1 7700 0;
 #X obj 115 93 vsl 15 128 0.2 20 1 0 empty empty empty 0 -9 0 10 -262130
--1 -1 0 1;
+-1 -1 7200 1;
 #X obj 368 96 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 172 95 vsl 15 128 0.2 20 1 0 empty empty empty 0 -9 0 10 -262130
@@ -1110,42 +1110,57 @@ in this scenario.;
 #X obj 374 371 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 319 346 Rec/Over stp;
-#N canvas 663 116 698 649 metrolooper 1;
-#X floatatom 163 47 5 0 0 0 - - -;
-#X floatatom 163 117 5 0 0 0 - - -;
-#X obj 163 85 expr (60/$f1)*1000;
-#X text 199 48 bpm;
-#X text 281 87 convert to ms;
-#X text 206 118 ms;
-#X obj 132 163 metro;
-#X obj 136 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 858 72 698 649 metrolooper 1;
+#X floatatom 403 17 5 0 0 0 - - -;
+#X floatatom 403 87 5 0 0 0 - - -;
+#X obj 403 55 expr (60/$f1)*1000;
+#X text 439 18 bpm;
+#X text 521 57 convert to ms;
+#X text 446 88 ms;
+#X obj 372 133 metro;
+#X obj 376 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X text 92 125 on/off;
-#X text 174 162 outputs bang every 'x' ms;
-#X obj 151 275 osc~ 800;
-#X obj 136 319 *~;
-#X obj 136 244 vline~;
-#X msg 136 195 1 20 \, 0 20 20;
-#X text 230 192 got to 1 (full volume) in 20 \, then go to zero (no
+#X text 325 93 on/off;
+#X text 414 132 outputs bang every 'x' ms;
+#X obj 509 233 osc~ 800;
+#X obj 494 277 *~;
+#X obj 494 202 vline~;
+#X msg 376 165 1 20 \, 0 20 20;
+#X text 470 162 got to 1 (full volume) in 20 \, then go to zero (no
 volume) in 20 ms after waiting 20 ms;
-#X text 184 243 translate to audio rate signal;
-#X text 214 276 generate 800 hz sine tone;
-#X text 166 318 multiply sine tone by amplitude envelope;
-#X obj 136 359 dac~;
-#X obj 163 18 inlet;
-#X obj 123 73 inlet;
+#X text 542 201 translate to audio rate signal;
+#X text 572 234 generate 800 hz sine tone;
+#X text 524 276 multiply sine tone by amplitude envelope;
+#X obj 494 317 dac~;
+#X obj 403 -12 inlet;
+#X obj 363 43 inlet;
 #X obj 21 199 float;
 #X obj 87 200 + 1;
 #X obj 22 257 mod 8;
 #X floatatom 84 256 5 0 0 0 - - -;
 #X floatatom 22 314 5 0 0 0 - - -;
-#X obj 171 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 169 420 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 192 409 Arm Rec;
-#X floatatom 23 496 5 0 0 0 - - -;
-#X floatatom 64 410 5 0 0 0 - - -;
+#X floatatom 20 510 5 0 0 0 - - -;
+#X floatatom 62 418 5 0 0 0 - - -;
 #X obj 64 355 t b b;
-#X obj 23 462 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
+#X obj 513 422 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 365 508 5 0 0 0 - - -;
+#X floatatom 406 422 5 0 0 0 - - -;
+#X obj 365 474 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
+#X text 534 421 Arm Stop Rec;
+#X obj 21 472 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
+#X obj 24 541 route 0 1;
+#X obj 64 595 outlet;
+#X text 184 421 Arm Rec;
+#X obj 364 537 route 0 1;
+#X obj 361 590 outlet;
+#X text 124 595 Go to Arm Rec;
+#X text 421 594 Go to Stop Rec;
+#X obj 175 353 inlet AR;
+#X obj 519 368 inlet ASP;
+#X obj 90 314 outlet;
 #X connect 0 0 2 0;
 #X connect 1 0 6 1;
 #X connect 2 0 1 0;
@@ -1164,19 +1179,31 @@ volume) in 20 ms after waiting 20 ms;
 #X connect 21 0 24 0;
 #X connect 22 0 21 1;
 #X connect 23 0 25 0;
-#X connect 25 0 30 0;
-#X connect 25 0 31 0;
-#X connect 26 0 31 2;
-#X connect 29 0 31 1;
-#X connect 30 0 29 0;
-#X connect 31 0 28 0;
-#X restore 542 343 pd metrolooper;
+#X connect 25 0 29 0;
+#X connect 25 0 33 0;
+#X connect 25 0 35 0;
+#X connect 25 0 45 0;
+#X connect 26 0 35 2;
+#X connect 27 0 36 0;
+#X connect 28 0 35 1;
+#X connect 29 0 28 0;
+#X connect 29 1 32 0;
+#X connect 30 0 33 2;
+#X connect 31 0 39 0;
+#X connect 32 0 33 1;
+#X connect 33 0 31 0;
+#X connect 35 0 27 0;
+#X connect 36 1 37 0;
+#X connect 39 1 40 0;
+#X connect 43 0 26 0;
+#X connect 44 0 30 0;
+#X restore 814 141 pd metrolooper;
 #N canvas 231 129 1047 529 metronone2 0;
 #N canvas 430 91 548 456 tempo 0;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 302 1;
+-257985 -1 0 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -;
 #N canvas 60 100 690 700 keyboard 0;
@@ -1288,7 +1315,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 126 153 hsl 120 30 0.01 1 1 0 \$0-v \$0-v volume 7 13 1 9 -245500
 -13381 -1 0 0;
 #X obj 269 110 tgl 30 0 THIS_IS_HERE_TO_GET_RID_OF_THE_OUTLET \$0-dsp-toggle
-dsp 8 14 1 9 -262144 -195568 -33289 0 1;
+dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #N canvas 366 444 482 356 dsp 0;
 #X obj 11 7 inlet;
 #X obj 92 226 select 0 1;
@@ -1434,7 +1461,7 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X obj 100 100 cnv 15 58 98 empty empty On/Off: 3 12 0 10 -204786 -66577
 0;
 #X obj 111 147 tgl 40 0 empty empty empty 17 7 0 10 -261234 -258113
--1 0 1;
+-1 1 1;
 #X obj 167 187 metro \$1;
 #X obj 38 129 sel 109;
 #N canvas 340 113 706 543 timer 0;
@@ -1585,10 +1612,10 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X coords 0 -1 1 1 287 200 1 100 100;
 #X restore 283 42 pd light;
 #N canvas 242 85 473 469 one 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 181 332 \; $colONE color \$1;
-#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -261681
+#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -260818
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -1669,7 +1696,7 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 63 109 0;
 #X obj 31 82 r TWO;
@@ -2091,6 +2118,15 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X text 611 58 Controles: m - metronome on/off up/down - tempo +/-
 left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X restore 748 343 pd metronone2;
+#X obj 844 70 tgl 15 0 empty empty Start_Metro_To_Rec 17 7 0 10 -262144
+-1 -1 1 1;
+#X floatatom 879 106 5 0 0 2 BPM - -;
+#X obj 740 142 tgl 15 0 empty empty REC?over 17 7 0 10 -258113 -1 -1
+0 1;
+#X obj 910 203 tgl 15 0 empty empty Stop_Rec 17 7 0 10 -257985 -1 -1
+0 1;
+#X floatatom 858 229 5 0 0 0 - - -;
+#X obj 859 176 + 1;
 #X connect 0 0 10 0;
 #X connect 0 1 15 0;
 #X connect 0 2 17 0;
@@ -2113,3 +2149,12 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 22 0 11 1;
 #X connect 23 0 22 1;
 #X connect 24 0 22 2;
+#X connect 26 0 30 0;
+#X connect 26 0 23 0;
+#X connect 26 1 33 0;
+#X connect 26 2 31 0;
+#X connect 28 0 26 1;
+#X connect 29 0 26 2;
+#X connect 30 0 26 0;
+#X connect 31 0 26 3;
+#X connect 33 0 32 0;
