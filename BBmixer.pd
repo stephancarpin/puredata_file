@@ -1,9 +1,9 @@
-#N canvas 149 136 1234 630 12;
+#N canvas 217 34 1119 657 12;
 #X obj 32 9 adc~ 1 2 3 4 5 6 7 8;
 #X obj 43 88 vsl 15 128 0.1 10 1 1 empty empty channel_1 0 -9 0 10
--262130 -1 -1 2000 0;
+-262130 -1 -1 9400 0;
 #X obj 115 93 vsl 15 128 0.2 20 1 0 empty empty empty 0 -9 0 10 -262130
--1 -1 2500 1;
+-1 -1 10600 1;
 #X obj 368 96 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 172 95 vsl 15 128 0.2 20 1 0 empty empty empty 0 -9 0 10 -262130
@@ -1110,7 +1110,7 @@ in this scenario.;
 #X obj 374 371 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 319 346 Rec/Over stp;
-#N canvas 742 72 698 649 metrolooper 0;
+#N canvas 21 53 698 649 metrolooper 0;
 #X floatatom 403 17 5 0 0 0 - - -;
 #X floatatom 403 87 5 0 0 0 - - -;
 #X obj 403 55 expr (60/$f1)*1000;
@@ -1125,7 +1125,6 @@ in this scenario.;
 #X obj 509 233 osc~ 800;
 #X obj 494 277 *~;
 #X obj 494 202 vline~;
-#X msg 376 165 1 20 \, 0 20 20;
 #X text 470 162 got to 1 (full volume) in 20 \, then go to zero (no
 volume) in 20 ms after waiting 20 ms;
 #X text 542 201 translate to audio rate signal;
@@ -1136,10 +1135,9 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 363 43 inlet;
 #X obj 21 199 float;
 #X obj 87 200 + 1;
-#X obj 22 257 mod 8;
 #X floatatom 84 256 5 0 0 0 - - -;
 #X floatatom 22 314 5 0 0 0 - - -;
-#X obj 169 420 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 217 444 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 20 510 5 0 0 0 - - -;
 #X floatatom 62 418 5 0 0 0 - - -;
@@ -1147,7 +1145,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 513 422 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 365 508 5 0 0 0 - - -;
-#X floatatom 406 422 5 0 0 0 - - -;
+#X floatatom 407 383 5 0 0 0 - - -;
 #X obj 365 474 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
 #X text 534 421 Arm Stop Rec;
 #X obj 21 472 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
@@ -1162,60 +1160,70 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 519 368 inlet ASP;
 #X obj 90 314 outlet;
 #X obj 70 136 inlet;
-#X floatatom 189 89 5 0 0 0 - - -;
 #X obj 189 48 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 207 45 restart Metro;
 #X obj 192 147 outlet;
 #X obj 176 12 inlet;
+#X obj 22 257 mod 8;
+#X obj 474 385 - 1;
+#X obj 363 564 t b;
+#X floatatom 486 562 5 0 0 0 - - -;
+#X msg 376 165 1 50 \, 0 20 20;
+#X msg 190 85 -1;
 #X connect 0 0 2 0;
 #X connect 1 0 6 1;
 #X connect 2 0 1 0;
-#X connect 6 0 13 0;
-#X connect 6 0 21 0;
+#X connect 6 0 53 0;
+#X connect 6 0 20 0;
 #X connect 7 0 6 0;
 #X connect 10 0 11 1;
-#X connect 11 0 18 0;
-#X connect 11 0 18 1;
+#X connect 11 0 17 0;
+#X connect 11 0 17 1;
 #X connect 12 0 11 0;
-#X connect 13 0 12 0;
-#X connect 19 0 0 0;
-#X connect 20 0 7 0;
-#X connect 21 0 22 0;
-#X connect 21 0 23 0;
-#X connect 21 0 24 0;
-#X connect 22 0 21 1;
-#X connect 23 0 25 0;
-#X connect 25 0 29 0;
-#X connect 25 0 33 0;
-#X connect 25 0 35 0;
-#X connect 25 0 45 0;
-#X connect 26 0 35 2;
-#X connect 27 0 36 0;
-#X connect 28 0 35 1;
-#X connect 29 0 28 0;
-#X connect 29 1 32 0;
-#X connect 30 0 33 2;
-#X connect 31 0 39 0;
-#X connect 32 0 33 1;
-#X connect 33 0 31 0;
-#X connect 35 0 27 0;
-#X connect 36 1 37 0;
-#X connect 39 1 40 0;
-#X connect 43 0 26 0;
-#X connect 44 0 30 0;
-#X connect 46 0 23 1;
-#X connect 47 0 21 0;
-#X connect 47 0 50 0;
-#X connect 48 0 47 0;
-#X connect 51 0 48 0;
+#X connect 18 0 0 0;
+#X connect 19 0 7 0;
+#X connect 20 0 21 0;
+#X connect 20 0 22 0;
+#X connect 20 0 49 0;
+#X connect 21 0 20 1;
+#X connect 23 0 27 0;
+#X connect 23 0 31 0;
+#X connect 23 0 33 0;
+#X connect 23 0 43 0;
+#X connect 24 0 33 2;
+#X connect 25 0 34 0;
+#X connect 26 0 33 1;
+#X connect 27 0 26 0;
+#X connect 27 1 30 0;
+#X connect 28 0 31 2;
+#X connect 29 0 37 0;
+#X connect 30 0 31 1;
+#X connect 31 0 29 0;
+#X connect 33 0 25 0;
+#X connect 34 1 35 0;
+#X connect 34 1 28 0;
+#X connect 37 1 51 0;
+#X connect 41 0 24 0;
+#X connect 42 0 28 0;
+#X connect 44 0 49 1;
+#X connect 45 0 54 0;
+#X connect 48 0 45 0;
+#X connect 49 0 23 0;
+#X connect 50 0 31 1;
+#X connect 51 0 38 0;
+#X connect 51 0 52 0;
+#X connect 52 0 28 0;
+#X connect 53 0 12 0;
+#X connect 54 0 47 0;
+#X connect 54 0 20 0;
 #X restore 814 141 pd metrolooper;
 #N canvas 231 129 1047 529 metronone2 0;
 #N canvas 430 91 548 456 tempo 0;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 1814 1;
+-257985 -1 0 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -;
 #N canvas 60 100 690 700 keyboard 0;
@@ -1503,7 +1511,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 100 67 r bang;
 #X obj 100 100 bng 130 250 50 0 $LIGHT empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 100 100 cnv 15 287 200 empty $colLIGHT empty 20 12 0 14 -166441
+#X obj 100 100 cnv 15 287 200 empty $colLIGHT empty 20 12 0 14 -258699
 -262144 0;
 #N canvas 419 22 651 747 counter 0;
 #X obj 48 266 float;
@@ -1624,10 +1632,10 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X coords 0 -1 1 1 287 200 1 100 100;
 #X restore 283 42 pd light;
 #N canvas 242 85 473 469 one 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 181 332 \; $colONE color \$1;
-#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -261681
+#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -260818
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -1650,7 +1658,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 82 r ONE;
 #X msg 63 109 0;
@@ -1763,7 +1771,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 63 109 0;
 #X obj 31 82 r THREE;
@@ -1875,7 +1883,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -1907,9 +1915,9 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X coords 0 -1 1 1 60 60 1 100 100;
 #X restore 266 242 pd five;
 #N canvas 574 51 545 629 six 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 100 100 cnv 15 60 60 empty $colSIX empty 20 12 0 14 -260818
+#X obj 100 100 cnv 15 60 60 empty $colSIX empty 20 12 0 14 -261681
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -2042,7 +2050,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2096,7 +2104,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2130,21 +2138,21 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X text 611 58 Controles: m - metronome on/off up/down - tempo +/-
 left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X restore 81 498 pd metronone2;
-#X obj 830 38 tgl 15 0 empty empty Start_Metro_To_Rec 17 7 0 10 -262144
+#X obj 864 29 tgl 60 0 empty empty Start_Metro_To_Rec 17 7 0 10 -4032
 -1 -1 0 1;
-#X floatatom 988 34 5 0 0 2 BPM - -;
-#X obj 740 142 tgl 15 0 empty empty REC?over 17 7 0 10 -258113 -1 -1
+#X floatatom 1094 42 5 0 0 2 BPM - -;
+#X obj 662 142 tgl 15 0 empty empty REC?over 17 7 0 10 -258113 -1 -1
 0 1;
-#X obj 910 203 tgl 15 0 empty empty Stop_Rec 17 7 0 10 -257985 -1 -1
-0 1;
+#X obj 980 122 tgl 15 0 empty empty Stop_Rec_afte_num_Bar_Automatically
+17 7 0 10 -257985 -1 -1 0 1;
 #X floatatom 858 198 5 0 0 0 - - -;
 #X obj 859 176 + 1;
 #X obj 757 543 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865 -4032
--1 5;
+-1 0;
 #X obj 798 229 s metro;
 #X obj 780 314 r metro;
 #X obj 882 543 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865 -4032
--1 0;
+-1 7;
 #X obj 781 398 route 1 2;
 #X floatatom 873 399 5 0 0 0 - - -;
 #X msg 722 105 16;
@@ -2157,9 +2165,9 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X floatatom 802 483 5 0 0 0 - - -;
 #X floatatom 930 479 5 0 0 0 - - -;
 #X floatatom 947 419 5 0 0 0 - - -;
-#X obj 951 170 s restartMetro;
+#X obj 898 173 s restartMetro;
 #X obj 989 359 r restartMetro;
-#X obj 783 37 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 786 29 bng 60 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X floatatom 758 512 5 0 0 0 - - -;
 #X floatatom 876 512 5 0 0 0 - - -;
@@ -2167,7 +2175,11 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X msg 722 49 4;
 #X msg 723 77 8;
 #X obj 859 233 hradio 15 1 0 16 empty empty empty 0 -8 0 20 -99865
--4032 -1 1;
+-4032 -1 7;
+#X obj 1018 155 s BangStopRec;
+#X obj 1019 202 print;
+#X obj 502 374 print;
+#X obj 326 298 r BangStopRec;
 #X connect 0 0 10 0;
 #X connect 0 1 15 0;
 #X connect 0 2 17 0;
@@ -2196,7 +2208,7 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 26 1 35 0;
 #X connect 26 1 58 0;
 #X connect 26 2 50 0;
-#X connect 26 3 31 0;
+#X connect 26 3 59 0;
 #X connect 28 0 26 3;
 #X connect 29 0 26 4;
 #X connect 30 0 26 1;
@@ -2226,3 +2238,4 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 55 0 39 0;
 #X connect 56 0 26 0;
 #X connect 57 0 26 0;
+#X connect 62 0 23 0;
