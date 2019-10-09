@@ -1,4 +1,4 @@
-#N canvas 349 135 906 672 12;
+#N canvas 152 23 1156 708 12;
 #X obj 31 317 adc~ 1 2 3 4 5 6 7 8;
 #X obj 33 356 vsl 15 128 0.1 40 1 1 empty empty channel_1 0 -9 0 10
 -262130 -1 -1 8319 0;
@@ -1213,7 +1213,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 6652 1;
+-257985 -1 1814 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -;
 #N canvas 60 100 690 700 keyboard 0;
@@ -1471,7 +1471,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 100 100 cnv 15 58 98 empty empty On/Off: 3 12 0 10 -204786 -66577
 0;
 #X obj 111 147 tgl 40 0 empty empty empty 17 7 0 10 -261234 -258113
--1 1 1;
+-1 0 1;
 #X obj 167 187 metro \$1;
 #X obj 38 129 sel 109;
 #N canvas 340 113 706 543 timer 0;
@@ -1622,10 +1622,10 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X coords 0 -1 1 1 287 200 1 100 100;
 #X restore 283 42 pd light;
 #N canvas 242 85 473 469 one 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 181 332 \; $colONE color \$1;
-#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -261681
+#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -260818
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -1648,7 +1648,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 82 r ONE;
 #X msg 63 109 0;
@@ -1706,7 +1706,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 63 109 0;
 #X obj 31 82 r TWO;
@@ -1761,7 +1761,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 63 109 0;
 #X obj 31 82 r THREE;
@@ -1873,7 +1873,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -1983,7 +1983,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2040,7 +2040,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2094,7 +2094,7 @@ dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2143,12 +2143,12 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X msg 712 317 4;
 #X msg 713 345 8;
 #X obj 849 501 hradio 15 1 0 16 empty empty empty 0 -8 0 20 -99865
--4032 -1 4;
+-4032 -1 2;
 #X obj 1008 423 s BangStopRec;
 #X obj 299 586 r BangStopRec;
 #N canvas 284 62 450 300 visualMetro 0;
 #X obj -121 169 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865
--4032 -1 5;
+-4032 -1 2;
 #X obj -98 -60 r metro;
 #X obj 4 169 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865 -4032
 -1 7;
@@ -2191,94 +2191,122 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X obj 645 441 s RecBang;
 #X obj 228 585 r RecBang;
 #X text 309 614 comment;
-#N canvas 290 53 1056 663 sendOscToMObile 1;
-#X obj 704 106 s metroPoistion;
-#X obj 862 365 r metroPoistion;
-#X obj 703 30 inlet;
-#X obj 120 21 inlet;
-#X obj 324 31 inlet;
+#N canvas 290 53 1056 663 sendOscToMObile 0;
+#X obj 704 115 s metroPoistion;
+#X obj 734 369 r metroPoistion;
+#X obj 703 20 inlet;
+#X obj 120 20 inlet;
+#X obj 324 20 inlet;
 #X obj 18 271 s looperColour;
 #X obj 11 20 inlet;
 #X obj 220 20 inlet;
-#X obj 84 73 route 0 1;
-#X obj 356 80 route 0 1;
-#X obj 290 262 s looperActiveRecording;
-#X obj 1009 366 netreceive -u -b;
-#X obj 1015 394 oscparse;
-#X obj 1016 423 list trim;
-#X obj 1029 593 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 120 50 route 0 1;
+#X obj 219 50 route 0 1;
+#X obj 1011 369 netreceive -u -b;
+#X obj 1011 399 oscparse;
+#X obj 1011 429 list trim;
+#X obj 1014 549 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 1028 580 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+#X obj 1011 546 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
 -1 -1 5;
-#X obj 518 494 list prepend send;
-#X obj 518 518 list trim;
-#X obj 520 590 print;
-#X obj 518 546 netsend -u -b;
-#X msg 367 650 disconnect;
-#X obj 1017 450 route metro;
-#X obj 1027 480 route position;
-#X obj 1018 516 route 1;
-#X obj 513 460 oscformat metro position;
-#X obj 1103 525 print out byte;
-#X msg 1011 338 listen;
-#X msg 285 602 connect 192.168.2.7 8002;
-#X msg 869 420 1 \$1 1;
-#X obj 12 51 s connections;
-#X obj 280 574 r connections;
-#X msg 125 155 looper1 symbol Arm_To_Record;
-#X msg 99 225 looper1 rec_ovr color orange;
-#X msg 317 127 looper1 rec_ovr color green;
-#X msg 318 153 looper1 symbolRecording doubletap_to_Ovrdub;
-#X msg 358 201 looper1 symbolRecording Recording_Now;
-#X msg 354 233 looper1 rec_ovr color red;
-#X obj 664 562 print;
-#X obj 591 604 oscparse;
-#X obj 591 629 print parse-output;
+#X obj 424 657 list prepend send;
+#X obj 424 687 list trim;
+#X obj 350 735 print;
+#X obj 424 717 netsend -u -b;
+#X msg 282 656 disconnect;
+#X obj 1011 459 route metro;
+#X obj 1011 489 route position;
+#X obj 1011 519 route 1;
+#X obj 734 429 oscformat metro position;
+#X obj 1103 518 print out byte;
+#X msg 1011 339 listen;
+#X msg 734 399 1 \$1 1;
+#X obj 11 50 s connections;
+#X obj 195 576 r connections;
+#X obj 24 570 oscparse;
+#X obj 24 600 print parse-output;
 #X obj 23 363 r looperColour;
-#X obj 26 429 any2list;
-#X obj 26 459 oscformat looper1 rec_ovr color;
-#X msg 25 399 blue;
-#X connect 1 0 28 0;
+#X obj 23 423 any2list;
+#X obj 23 453 oscformat looper1 rec_ovr color;
+#X obj 23 483 s looperColour;
+#X obj 393 557 r looperColour;
+#X obj 472 631 r metroPosition;
+#X obj 734 459 s metroPosition;
+#X msg 195 606 connect 192.168.100.30 8002;
+#X msg 20 115 blue;
+#X msg 20 144 orange;
+#X obj 270 423 any2list;
+#X obj 269 366 r symbolText;
+#X obj 138 271 s symbolText;
+#X obj 270 455 oscformat looper1 symbol;
+#X msg 132 172 Arm_To_Record;
+#X msg 127 143 Press to Arm;
+#X obj 271 489 s looperSymboltext;
+#X obj 411 583 r looperSymboltext;
+#X msg 21 174 green;
+#X msg 22 209 red;
+#X msg 256 144 doubletap_to_Ovrdub;
+#X obj 474 425 any2list;
+#X obj 474 457 oscformat looper1 symbolRecording;
+#X msg 259 188 Recording_Now;
+#X obj 257 271 s looperActiveRecordingtext;
+#X obj 474 367 r looperActiveRecordingtext;
+#X obj 474 491 s looperSymbolRecordingtext;
+#X obj 443 605 r looperSymbolRecordingtext;
+#X connect 1 0 26 0;
 #X connect 2 0 0 0;
 #X connect 3 0 8 0;
-#X connect 6 0 29 0;
+#X connect 6 0 27 0;
 #X connect 7 0 9 0;
-#X connect 8 0 5 0;
-#X connect 9 0 33 0;
-#X connect 9 0 34 0;
-#X connect 9 1 36 0;
-#X connect 9 1 35 0;
+#X connect 8 0 39 0;
+#X connect 8 0 46 0;
+#X connect 8 1 40 0;
+#X connect 8 1 45 0;
+#X connect 9 0 51 0;
+#X connect 9 0 49 0;
+#X connect 9 1 54 0;
+#X connect 9 1 50 0;
+#X connect 10 0 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 12 0 25 0;
-#X connect 13 0 21 0;
-#X connect 16 0 17 0;
-#X connect 17 0 19 0;
+#X connect 11 0 24 0;
+#X connect 12 0 20 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 18 0 17 0;
 #X connect 19 0 18 0;
-#X connect 20 0 19 0;
+#X connect 20 0 21 0;
 #X connect 21 0 22 0;
-#X connect 22 0 23 0;
-#X connect 23 0 15 0;
-#X connect 24 0 16 0;
-#X connect 26 0 11 0;
-#X connect 27 0 19 0;
-#X connect 28 0 24 0;
-#X connect 30 0 19 0;
-#X connect 31 0 5 0;
-#X connect 32 0 5 0;
-#X connect 33 0 10 0;
-#X connect 34 0 10 0;
-#X connect 35 0 10 0;
-#X connect 36 0 10 0;
-#X connect 38 0 39 0;
-#X connect 40 0 43 0;
-#X connect 41 0 42 0;
-#X connect 42 0 16 0;
-#X connect 42 0 38 0;
-#X connect 43 0 41 0;
+#X connect 22 0 14 0;
+#X connect 23 0 37 0;
+#X connect 25 0 10 0;
+#X connect 26 0 23 0;
+#X connect 28 0 18 0;
+#X connect 29 0 30 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
+#X connect 33 0 29 0;
+#X connect 33 0 34 0;
+#X connect 35 0 15 0;
+#X connect 36 0 15 0;
+#X connect 38 0 18 0;
+#X connect 39 0 5 0;
+#X connect 40 0 5 0;
+#X connect 41 0 44 0;
+#X connect 42 0 41 0;
+#X connect 44 0 47 0;
+#X connect 45 0 43 0;
+#X connect 46 0 43 0;
+#X connect 48 0 15 0;
+#X connect 49 0 5 0;
+#X connect 51 0 55 0;
+#X connect 52 0 53 0;
+#X connect 53 0 57 0;
+#X connect 54 0 55 0;
+#X connect 56 0 52 0;
+#X connect 58 0 15 0;
 #X restore 590 697 pd sendOscToMObile;
 #X obj 652 609 r BangStopRec;
-#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 553 540 5 0 0 0 - - -;
 #X obj 553 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -2297,8 +2325,8 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X obj 507 199 route clear on bpm lenght4 lenght8 lenght16 position
 ;
 #X obj 28 199 route v1 v2 v3 v4 v5 v6 v7 v8;
-#X msg 367 651 connect 192.168.8.98 8000;
 #X obj 302 107 print;
+#X msg 367 651 connect 192.168.100.30 8002;
 #X connect 0 0 8 0;
 #X connect 0 1 13 0;
 #X connect 0 2 15 0;
@@ -2352,13 +2380,13 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 48 0 49 1;
 #X connect 49 0 45 0;
 #X connect 50 0 46 0;
-#X connect 51 0 59 0;
+#X connect 51 0 60 0;
 #X connect 52 0 53 0;
 #X connect 53 0 55 0;
 #X connect 54 0 52 0;
 #X connect 55 0 58 0;
 #X connect 55 1 57 0;
-#X connect 55 1 60 0;
+#X connect 55 1 59 0;
 #X connect 55 2 56 0;
 #X connect 56 0 47 0;
 #X connect 56 1 20 2;
@@ -2376,4 +2404,4 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 58 4 3 0;
 #X connect 58 5 7 0;
 #X connect 58 6 6 0;
-#X connect 59 0 43 0;
+#X connect 60 0 43 0;
