@@ -1,0 +1,48 @@
+#N canvas 378 159 768 560 12;
+#X obj 17 302 netsend -u -b;
+#X obj 90 232 list prepend send;
+#X obj 89 261 list trim;
+#X obj 435 212 netreceive -u -b;
+#X obj 431 255 oscparse;
+#X obj 431 280 list trim;
+#X floatatom 266 422 5 0 0 0 - - -;
+#X obj 455 438 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 399 98 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 4;
+#X obj 402 163 print;
+#X msg 66 166 \$1;
+#X obj 454 397 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X obj 400 335 print;
+#X msg 141 174 3;
+#X msg 59 102 format;
+#X msg 437 167 listen 4020;
+#X msg 15 47 connect localhost 4020;
+#X msg 198 328 disconnect;
+#X floatatom 206 162 5 0 0 0 - - -;
+#X obj 223 86 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 398 29 5 0 0 0 - - -;
+#X obj 86 203 oscformat -f b metro position;
+#X obj 430 303 route metro;
+#X obj 441 330 route position;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 22 0;
+#X connect 8 0 10 0;
+#X connect 10 0 21 0;
+#X connect 13 0 21 0;
+#X connect 14 0 21 0;
+#X connect 15 0 3 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X connect 18 0 21 0;
+#X connect 19 0 18 0;
+#X connect 20 0 8 0;
+#X connect 21 0 1 0;
+#X connect 22 0 23 0;
+#X connect 23 0 11 0;
+#X connect 23 0 12 0;
