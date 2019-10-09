@@ -1,4 +1,4 @@
-#N canvas 409 406 906 672 12;
+#N canvas 349 135 906 672 12;
 #X obj 31 317 adc~ 1 2 3 4 5 6 7 8;
 #X obj 33 356 vsl 15 128 0.1 40 1 1 empty empty channel_1 0 -9 0 10
 -262130 -1 -1 8319 0;
@@ -1213,7 +1213,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 6350 1;
+-257985 -1 6652 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -;
 #N canvas 60 100 690 700 keyboard 0;
@@ -2191,7 +2191,7 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X obj 645 441 s RecBang;
 #X obj 228 585 r RecBang;
 #X text 309 614 comment;
-#N canvas 514 24 1056 663 sendOscToMObile 1;
+#N canvas 290 53 1056 663 sendOscToMObile 1;
 #X obj 704 106 s metroPoistion;
 #X obj 862 365 r metroPoistion;
 #X obj 703 30 inlet;
@@ -2218,7 +2218,7 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X obj 1017 450 route metro;
 #X obj 1027 480 route position;
 #X obj 1018 516 route 1;
-#X obj 517 466 oscformat metro position;
+#X obj 513 460 oscformat metro position;
 #X obj 1103 525 print out byte;
 #X msg 1011 338 listen;
 #X msg 285 602 connect 192.168.2.7 8002;
@@ -2232,15 +2232,12 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X msg 358 201 looper1 symbolRecording Recording_Now;
 #X msg 354 233 looper1 rec_ovr color red;
 #X obj 664 562 print;
-#X obj 212 315 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
 #X obj 591 604 oscparse;
 #X obj 591 629 print parse-output;
-#X msg 112 378 format;
-#X obj 208 365 r looperColour;
-#X obj 240 422 any2list;
-#X msg 240 392 green;
-#X obj 211 461 oscformat -f b looper1 rec_ovr color;
+#X obj 23 363 r looperColour;
+#X obj 26 429 any2list;
+#X obj 26 459 oscformat looper1 rec_ovr color;
+#X msg 25 399 blue;
 #X connect 1 0 28 0;
 #X connect 2 0 0 0;
 #X connect 3 0 8 0;
@@ -2273,17 +2270,15 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 34 0 10 0;
 #X connect 35 0 10 0;
 #X connect 36 0 10 0;
-#X connect 38 0 44 0;
-#X connect 39 0 40 0;
-#X connect 41 0 45 0;
-#X connect 42 0 45 0;
-#X connect 43 0 45 0;
-#X connect 44 0 43 0;
-#X connect 45 0 16 0;
-#X connect 45 0 39 0;
+#X connect 38 0 39 0;
+#X connect 40 0 43 0;
+#X connect 41 0 42 0;
+#X connect 42 0 16 0;
+#X connect 42 0 38 0;
+#X connect 43 0 41 0;
 #X restore 590 697 pd sendOscToMObile;
 #X obj 652 609 r BangStopRec;
-#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X floatatom 553 540 5 0 0 0 - - -;
 #X obj 553 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
