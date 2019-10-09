@@ -1,15 +1,16 @@
-#N canvas 254 51 1156 708 12;
+#N canvas 331 64 1156 708 12;
+#X declare -lib zexy;
 #X obj 31 317 adc~ 1 2 3 4 5 6 7 8;
 #X obj 33 356 vsl 15 128 0.1 40 1 1 empty empty channel_1 0 -9 0 10
 -262130 -1 -1 8651 0;
 #X obj 58 358 vsl 15 128 0.2 20 1 0 empty empty empty 0 -9 0 10 -262130
--1 -1 9782 1;
+-1 -1 0 1;
 #X obj 143 362 vsl 15 128 0 40 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 85 361 vsl 15 128 0.2 10 1 0 empty empty empty 0 -9 0 10 -262130
--1 -1 11272 1;
+-1 -1 0 1;
 #X obj 115 358 vsl 15 128 0 10 0 0 empty empty empty 0 -9 0 10 -262130
--1 -1 10348 1;
+-1 -1 0 1;
 #X obj 204 364 vsl 15 128 0 40 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 174 359 vsl 15 128 0 40 0 0 empty empty empty 0 -9 0 10 -262144
@@ -1213,7 +1214,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 0 1;
+-257985 -1 1814 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -, f 6;
 #N canvas 60 100 690 700 keyboard 0;
@@ -1325,7 +1326,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 126 153 hsl 120 30 0.01 1 1 0 \$0-v \$0-v volume 7 13 1 9 -245500
 -13381 -1 0 0;
 #X obj 269 110 tgl 30 0 THIS_IS_HERE_TO_GET_RID_OF_THE_OUTLET \$0-dsp-toggle
-dsp 8 14 1 9 -262144 -195568 -33289 0 1;
+dsp 8 14 1 9 -225271 -195568 -33289 1 1;
 #N canvas 366 444 482 356 dsp 0;
 #X obj 11 7 inlet;
 #X obj 92 226 select 0 1;
@@ -1471,7 +1472,7 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X obj 100 100 cnv 15 58 98 empty empty On/Off: 3 12 0 10 -204786 -66577
 0;
 #X obj 111 147 tgl 40 0 empty empty empty 17 7 0 10 -261234 -258113
--1 0 1;
+-1 1 1;
 #X obj 167 187 metro \$1;
 #X obj 38 129 sel 109;
 #N canvas 340 113 706 543 timer 0;
@@ -1622,10 +1623,10 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X coords 0 -1 1 1 287 200 1 100 100;
 #X restore 283 42 pd light;
 #N canvas 242 85 473 469 one 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 181 332 \; $colONE color \$1;
-#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -261681
+#X obj 100 100 cnv 15 60 60 empty $colONE empty 20 12 0 14 -260818
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -2015,9 +2016,9 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X coords 0 -1 1 1 60 60 1 100 100;
 #X restore 388 242 pd seven;
 #N canvas 574 51 545 629 six 0;
-#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 100 100 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 100 100 cnv 15 60 60 empty $colEIGHT empty 20 12 0 14 -260818
+#X obj 100 100 cnv 15 60 60 empty $colEIGHT empty 20 12 0 14 -261681
 -262144 0;
 #X obj 100 36 key;
 #X obj 181 160 sel 1 0;
@@ -2040,7 +2041,7 @@ dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #X obj 207 158 sel 1 0;
 #X obj 207 233 outlet;
 #X msg 207 203 0;
-#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 207 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 87 76 r ONE;
 #X msg 63 109 0;
@@ -2308,7 +2309,7 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 59 0 17 0;
 #X restore 590 697 pd sendOscToMObile;
 #X obj 652 609 r BangStopRec;
-#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 553 540 5 0 0 0 - - -, f 5;
 #X obj 553 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -2328,6 +2329,7 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 ;
 #X obj 28 199 route v1 v2 v3 v4 v5 v6 v7 v8;
 #X msg 367 651 connect 192.168.8.98 8002;
+#X obj 308 64 declare -lib zexy;
 #X connect 0 0 8 0;
 #X connect 0 1 13 0;
 #X connect 0 2 15 0;
