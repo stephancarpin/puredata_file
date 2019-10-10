@@ -1,4 +1,4 @@
-#N canvas 284 64 1156 708 12;
+#N canvas 130 23 1310 808 12;
 #X declare -lib zexy;
 #X obj 30 313 adc~ 1 2 3 4 5 6 7 8;
 #X obj 33 356 vsl 15 128 0.1 40 1 1 empty empty channel_1 0 -9 0 10
@@ -16,9 +16,9 @@
 #X obj 174 359 vsl 15 128 0 40 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 8 524 *~;
-#X obj 148 735 dac~;
+#X obj 140 791 dac~;
 #X obj 10 574 s~ audioOut;
-#X obj 133 652 r~ audioOut;
+#X obj 231 566 r~ audioOut;
 #X floatatom 28 505 5 0 0 0 - - -;
 #X obj 74 529 *~;
 #X floatatom 102 501 5 0 0 0 - - -;
@@ -1098,10 +1098,10 @@ in this scenario.;
 #X connect 37 0 8 0;
 #X connect 38 0 35 0;
 #X connect 39 0 38 1;
-#X restore 243 677 pd looper;
-#X obj 266 616 tgl 20 0 empty empty Record 17 7 0 10 -4034 -1 -1 0
-1;
-#X obj 394 445 bng 60 250 50 0 empty empty Clear/Reset_Loop 17 7 0
+#X restore 225 772 pd looper;
+#X obj 246 654 tgl 20 0 empty empty Recording 17 7 0 10 -258113 -1
+-1 0 1;
+#X obj 442 379 bng 60 250 50 0 empty empty Clear/Reset_Loop 17 7 0
 10 -258113 -1 -1;
 #N canvas 22 53 698 649 metrolooper 0;
 #X floatatom 403 17 5 0 0 0 - - -;
@@ -1214,7 +1214,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 100 100 cnv 15 200 100 empty empty Tempo: 20 12 0 14 -203904
 -66577 0;
 #X obj 117 135 hsl 128 15 30 240 0 0 empty empty empty -2 -8 0 10 -4032
--257985 -1 1814 1;
+-257985 -1 0 1;
 #X obj 114 223 int;
 #X floatatom 254 135 6 0 0 0 - - -;
 #N canvas 60 100 690 700 keyboard 0;
@@ -1326,7 +1326,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 126 153 hsl 120 30 0.01 1 1 0 \$0-v \$0-v volume 7 13 1 9 -245500
 -13381 -1 0 0;
 #X obj 269 110 tgl 30 0 THIS_IS_HERE_TO_GET_RID_OF_THE_OUTLET \$0-dsp-toggle
-dsp 8 14 1 9 -225271 -195568 -33289 1 1;
+dsp 8 14 1 9 -262144 -195568 -33289 0 1;
 #N canvas 366 444 482 356 dsp 0;
 #X obj 11 7 inlet;
 #X obj 92 226 select 0 1;
@@ -2132,24 +2132,22 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X obj 869 290 tgl 60 0 empty empty Start_Metro_To_Rec 17 7 0 10 -4032
 -1 -1 0 1;
 #X floatatom 978 302 5 0 0 2 BPM - -;
-#X obj 553 582 tgl 25 0 empty empty REC?over 17 7 0 10 -4034 -1 -1
+#X obj 568 517 tgl 25 0 empty empty REC?over 17 7 0 10 -4034 -1 -1
 0 1;
-#X floatatom 853 468 5 0 0 0 - - -;
-#X obj 850 443 + 1;
-#X obj 788 497 s metro;
+#X obj 855 565 s metro;
 #X msg 712 373 16;
-#X obj 888 441 s restartMetro;
+#X obj 863 448 s restartMetro;
 #X obj 795 290 bng 60 250 50 0 empty empty empty 17 7 0 10 -162280
 -1 -1;
 #X msg 712 317 4;
 #X msg 713 345 8;
 #X obj 849 501 hradio 15 1 0 16 empty empty empty 0 -8 0 20 -99865
--4032 -1 0;
-#X obj 1008 423 s BangStopRec;
-#X obj 299 586 r BangStopRec;
+-4032 -1 7;
+#X obj 984 446 s BangStopRec;
+#X obj 247 625 r BangStopRec;
 #N canvas 284 62 450 300 visualMetro 0;
 #X obj -121 169 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865
--4032 -1 1;
+-4032 -1 0;
 #X obj -98 -60 r metro;
 #X obj 4 169 hradio 15 1 0 8 empty empty empty 0 -8 0 20 -99865 -4032
 -1 7;
@@ -2189,9 +2187,8 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 17 0 3 0;
 #X connect 17 0 4 0;
 #X restore 11 726 pd visualMetro;
-#X obj 645 441 s RecBang;
-#X obj 228 585 r RecBang;
-#X text 309 614 comment;
+#X obj 773 499 s RecBang;
+#X obj 245 598 r RecBang;
 #N canvas 378 58 1056 663 sendOscToMObile 0;
 #X obj 704 115 s metroPoistion;
 #X obj 734 369 r metroPoistion;
@@ -2307,19 +2304,16 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 57 0 40 0;
 #X connect 58 0 36 0;
 #X connect 59 0 17 0;
-#X restore 590 697 pd sendOscToMObile;
-#X obj 652 609 r BangStopRec;
-#X obj 553 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 841 770 pd sendOscToMObile;
+#X obj 568 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 553 540 5 0 0 0 - - -;
-#X obj 553 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 568 475 5 0 0 0 - - -;
+#X obj 568 394 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 586 474 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 601 409 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 553 497 spigot;
-#X floatatom 405 588 5 0 0 0 - - -;
-#X obj 369 618 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 568 432 spigot;
+#X floatatom 442 454 5 0 0 0 - - -;
 #X obj 27 56 oscparse;
 #X obj 27 104 list trim;
 #X obj 24 18 netreceive -u -b 7000;
@@ -2329,7 +2323,27 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 ;
 #X obj 28 199 route v1 v2 v3 v4 v5 v6 v7 v8;
 #X obj 308 64 declare -lib zexy;
-#X msg 367 651 connect 192.168.2.7 8002;
+#X msg 840 633 connect 192.168.2.7 8002;
+#X obj 262 291 s rec_ovr;
+#X obj 570 357 r rec_ovr;
+#X obj 278 266 s volumelooper;
+#X obj 391 608 r volumelooper;
+#X obj 315 244 s clearloop;
+#X obj 444 326 r clearloop;
+#X obj 288 673 s recOSCout;
+#X obj 902 693 r recOSCout;
+#X obj 964 741 r metro;
+#X obj 686 409 s resetMetro;
+#X obj 840 601 r resetMetro;
+#X obj 442 278 r resetMetro;
+#X obj 439 522 s resetlooprec;
+#X obj 931 717 r resetlooprec;
+#X obj 442 485 s resetREC;
+#X obj 285 745 r resetREC;
+#X obj 567 553 s armOsc;
+#X obj 871 661 r armOsc;
+#X obj 390 641 vsl 15 128 0 40 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5600 1;
 #X connect 0 0 8 0;
 #X connect 0 1 13 0;
 #X connect 0 2 15 0;
@@ -2352,59 +2366,65 @@ left/right - tempo +/- (fast) numbers 1/9 - time signatures;
 #X connect 20 0 9 0;
 #X connect 20 0 9 1;
 #X connect 21 0 20 1;
-#X connect 21 0 43 2;
-#X connect 22 0 20 3;
-#X connect 22 0 50 0;
-#X connect 23 0 40 0;
+#X connect 21 0 62 0;
+#X connect 22 0 46 0;
+#X connect 22 0 70 0;
+#X connect 23 0 38 0;
 #X connect 23 0 27 0;
-#X connect 23 1 29 0;
-#X connect 23 1 30 0;
-#X connect 23 1 36 0;
-#X connect 23 2 32 0;
-#X connect 23 3 37 0;
+#X connect 23 1 34 0;
+#X connect 23 2 30 0;
+#X connect 23 3 35 0;
 #X connect 25 0 23 3;
 #X connect 26 0 23 4;
 #X connect 27 0 23 1;
-#X connect 27 0 43 1;
-#X connect 29 0 28 0;
-#X connect 31 0 23 0;
-#X connect 33 0 23 2;
-#X connect 33 0 22 0;
-#X connect 33 0 51 0;
-#X connect 34 0 23 0;
-#X connect 35 0 23 0;
-#X connect 36 0 43 4;
-#X connect 38 0 21 0;
-#X connect 41 0 21 0;
-#X connect 45 0 46 0;
-#X connect 46 0 27 0;
+#X connect 27 0 72 0;
+#X connect 29 0 23 0;
+#X connect 31 0 23 2;
+#X connect 31 0 65 0;
+#X connect 32 0 23 0;
+#X connect 33 0 23 0;
+#X connect 34 0 28 0;
+#X connect 36 0 21 0;
+#X connect 39 0 21 0;
+#X connect 41 0 42 0;
+#X connect 42 0 27 0;
+#X connect 43 0 44 0;
+#X connect 43 0 45 0;
+#X connect 44 0 45 1;
+#X connect 45 0 41 0;
+#X connect 46 0 42 0;
+#X connect 46 0 68 0;
 #X connect 47 0 48 0;
-#X connect 47 0 49 0;
-#X connect 48 0 49 1;
-#X connect 49 0 45 0;
-#X connect 50 0 46 0;
-#X connect 50 0 43 3;
-#X connect 51 0 60 0;
-#X connect 52 0 53 0;
-#X connect 53 0 55 0;
-#X connect 54 0 52 0;
-#X connect 55 0 58 0;
-#X connect 55 1 57 0;
-#X connect 55 2 56 0;
-#X connect 56 0 47 0;
-#X connect 56 1 20 2;
-#X connect 56 2 22 0;
-#X connect 57 0 33 0;
-#X connect 57 1 25 0;
-#X connect 57 2 26 0;
-#X connect 57 3 34 0;
-#X connect 57 4 35 0;
-#X connect 57 5 31 0;
-#X connect 58 0 1 0;
-#X connect 58 1 2 0;
-#X connect 58 2 4 0;
-#X connect 58 3 5 0;
-#X connect 58 4 3 0;
-#X connect 58 5 7 0;
-#X connect 58 6 6 0;
-#X connect 60 0 43 0;
+#X connect 48 0 50 0;
+#X connect 49 0 47 0;
+#X connect 50 0 53 0;
+#X connect 50 1 52 0;
+#X connect 50 2 51 0;
+#X connect 51 0 56 0;
+#X connect 51 1 58 0;
+#X connect 51 2 60 0;
+#X connect 52 0 31 0;
+#X connect 52 1 25 0;
+#X connect 52 2 26 0;
+#X connect 52 3 32 0;
+#X connect 52 4 33 0;
+#X connect 52 5 29 0;
+#X connect 53 0 1 0;
+#X connect 53 1 2 0;
+#X connect 53 2 4 0;
+#X connect 53 3 5 0;
+#X connect 53 4 3 0;
+#X connect 53 5 7 0;
+#X connect 53 6 6 0;
+#X connect 55 0 40 0;
+#X connect 57 0 43 0;
+#X connect 59 0 74 0;
+#X connect 61 0 22 0;
+#X connect 63 0 40 2;
+#X connect 64 0 40 4;
+#X connect 66 0 55 0;
+#X connect 67 0 22 0;
+#X connect 69 0 40 3;
+#X connect 71 0 20 3;
+#X connect 73 0 40 1;
+#X connect 74 0 20 2;
