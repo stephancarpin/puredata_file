@@ -1,0 +1,73 @@
+#OSC
+https://github.com/MariadeAnton/oscpack
+##androsc
+https://www.apkmonk.com/app/com.ahmetkizilay.controls.androsc/
+```
+$make
+``` 
+
+##Verification test
+To run the unit tests:
+```
+$ ./bin/OscUnitTests
+
+To run the send and receive tests. Open two terminals. In one run:
+
+$ ./bin/OscReceiveTest
+
+Then in the other terminal run:
+
+$./bin/OscSendTests
+fuser 7000/tcp
+to kill
+```
+
+on device mobile 
+ip address 192.168.7.2
+port 7000
+/oscControl
+
+
+##PD External
+https://github.com/pure-data/deken
+https://puredata.info/downloads/pd-extended
+https://puredata.info/docs/developer/BuildingPdExtended
+https://puredata.info/docs/developer/GettingPdSource
+
+```
+mkdir ~/auto-build
+cd ~/auto-build
+https://puredata.info/downloads/pd-extended
+Get Pd-extended for All platforms
+wget the toPd-extended for All platforms
+1. rename download to Pd-extended.tar.bz2
+2. tar -xvf 
+3. 
+~/auto-build/pd-extended/scripts/auto-build/pd-extended-auto-builder.sh
+
+```
+http://write.flossmanuals.net/pure-data/debian-ubuntu-mint-etc/
+sudo apt-get install pd-zexy pd-wiimote pd-readanysf
+
+https://forum.pdpatchrepo.info/topic/11290/mobmuplat-ready-effects-collection-i-e-30-vanilla-compliant-mmp-effects-w-gui
+#compresssor and other effect
+https://ccrma.stanford.edu/wiki/Stompbox_2012
+http://essej.net/sooperlooper/oldplugin.html
+
+
+
+#Mrpeach Problem
+
+https://forum.pdpatchrepo.info/topic/6439/compiling-mrpeach-osc-on-beagleboard-under-ubuntu
+http://pd-la.info/pdpi/
+https://forum.pdpatchrepo.info/topic/10640/parsing-osc-format-udp-list-solved/2
+
+```
+Split the list and convert the first element into a set message. Then pipe
+> the rest of the list (2nd outlet of [list split 1] into [oscformat).
+> 
+
+just make sure that the "set" message arrives at the [oscformat] object
+before the remainder of the list...
+
+```
