@@ -1,15 +1,38 @@
 #BeagleBone Login Using ssh usb to bBB
 machinekit: qwer1234
+ ssh-keygen -R 192.168.6.2
 
 ```
 pd -alsa -nogui -r 44100 -blocksize 64 -audiobuf 20 -audioadddev AudioBox adc_test.pd
 best perfromnace
 pd -alsa -nogui -r 44100 -blocksize 64 -audiobuf 35 -audioadddev AudioBox adc_test.pd
+pd -alsa  -nogui -r 44100 -blocksize 64 -audiobuf 35 -audioadddev AudioBox puredata_file/BBmixerOptimise.pd
+
+pd -oss -nogui -rt  BBmixerOptimise.pd
+pd -oss -nogui -rt BBmixerOptimise.pd
 ```
 #HEAVY convert pd to C++
 ***https://github.com/enzienaudio/hvcc/blob/master/docs/01.introduction.md#what-is-heavy***
 
-machinekit
+##Emmc Flash
+1. download lastest image debian
+2. use balentecher to put on sdcard
+3. then go to /boot/uEnv.txt and enable emmc flasher on sdcard image
+4. connect power
+4. reboot
+5. 
+
+
+##Machinekit Image
+
+***https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#BBW.2FBBB_.28All_Revs.29_Machinekit***
+
+clean 
+4) search google for "debian clean up /var". For example the apt cache 
+in /var/cache/apt/archives on one of my servers is using 707MB and 
+apt-get clean would give you back that space 
+Machinekit Emmc
+
 
 
 to test
@@ -29,7 +52,7 @@ dtb=am335x-boneblack-wireless.dtb
 
 #Login
 
-
+screen /dev/tty.usbmodem1423 115200"
 1.  ssh debian@192.168.6.2
 2.  ssh  debian@192.168.6.2 -Y -v to launch X11 wiyj
 3.  
@@ -61,6 +84,12 @@ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 ip addr show
 ```
 
+##on linux 
+https://gist.github.com/pdp7/d2711b5ff1fbb000240bd8337b859412
+
+
+
+
 sudo shutdown -h now 
 
 #setup reatime audio inlinux
@@ -68,9 +97,9 @@ sudo shutdown -h now
 ```
 nano /etc/security/limits.conf
 ```
-#@beaglebone     -       rtprio          99
-#@beaglebone     -       memlock         unlimited
-#@beaglebone     -       nice            -10
+@audio     -       rtprio          99
+@audio     -      memlock         unlimited
+@audio     -       nice            -10
 ```
 
 # If you want to enable/disable realtime permissions, run
@@ -113,6 +142,7 @@ nano /etc/apt/sources.list
 *https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html*
 
 1./etc/ssh/sshd_config.
+sudo service sshd restart
 
 ```
 X11Forwarding yes
@@ -126,6 +156,12 @@ X11UseLocalhost yes
 6. xclock (window should pop on mac)
 7. ssh  debian@192.168.6.2 -Y -v
 8. ```pd -oss &```  to launch  pure data via X11
+ 
+ 
+ 
+ 
+ 
+ 
  
 #Soundcard 
 1. http://einsteiniumstudios.com/make-your-beaglebone-speak.html
@@ -197,6 +233,8 @@ jakkill -9 jackdbus
 ```nano /etc/modprobe.d/alsa-base.conf```
 
 ```options snd-usb-audio index = -1 ```insteat of -2
+sudo modprobe -r snd-usb-audio
+sudo modprobe snd-usb-audio
 
 
 #use https://purplepalmdash.github.io/2013/12/09/enable-audio-in-beaglebone-black/ to inital usb audio first not nano /boot/uEnv/txt to diable audio
@@ -251,7 +289,7 @@ sudo apt-get purge --auto-remove dbus-x11
 ```
 #Increase perfromnace and detch culprit
 ##https://cristos.vipserv.org/2015/09/linux-setup-for-real-time-audio-production/
-
+/usr/bin/jackd -v -P6 -m -dalsa -dhw:VSL -r44100 -p512 -n2 -i2 -o2 -I1 -O1
 
 ```
 debian@beaglebone:/etc/udev/rules.d$ sudo nano 40-hpet-permission.rules
@@ -552,7 +590,7 @@ Linux beaglebone 4.9.82-ti-r102 #1 SMP PREEMPT Thu Feb 22 01:16:12 UTC 2018 armv
 
 Linux beaglebone 4.14.108-ti-r113 #1 SMP PREEMPT Wed Jul 31 00:01:10 UTC 2019 armv7l GNU/Linux
 
- ssh-keygen -R 192.168.6.2
+
 
 ##VERY IMpotsnat 
 #http://www.bootembedded.com/embedded-linux/building-embedded-linux-scratch-beaglebone-black/
@@ -564,6 +602,40 @@ https://www.ofitselfso.com/BeagleNotes/CloningABootableBeagleboneBlackSDCard.php
 pd -nogui BBmixer.pd
 
 
+#stop process
+systemctl disable cloud9.service
+systemctl disable bonescript.service
+systemctl disable bonescript.socket
+systemctl disable bonescript-autorun.service
+sudo systemctl disable node-red.service
+/etc/init.d/apache2 stop
+sudo systemctl disable apache2 && sudo systemct stop apache2
+
+
+
+/etc/init.d/nginx stop
+
+linux-firmware-image-4.4.91-ti-rt-r138_1buster_armhf.deb
+
+
+#to test
+#Jack
+ps -e | grep jack
+
+https://supercollider.github.io/development/building-beagleboneblack
+
+jackd -P75 -p16 -dalsa -dhw:1 -r44100 -p1024 -n3
+jackd -P75 -dalsa -dhw:1 -r44100 -p64 -n3
+```
+jackd  -dalsa -dhw:1 -r44100 -p512 -n5
+jackd -d alsa -d hw:1 -p2048 -D -n7 -r44100 -m -s -S
+pd -jack -nogui BBmixerOptimise.pd
+```
+noxrun
+```
+jackd -P75  -d alsa -d hw:1 -p256  -D -n2 -r44100 -m -s -S
+jackd -P75  -d alsa  -d hw:1 -p64  -D -n3  -r44100 -m -s -S
+```
 
 
 
