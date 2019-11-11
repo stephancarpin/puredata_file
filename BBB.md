@@ -1,6 +1,10 @@
 #BeagleBone Login Using ssh usb to bBB
 machinekit: qwer1234
- ssh-keygen -R 192.168.6.2
+
+alsacap
+
+
+#ssh-keygen -R 192.168.6.2
 
 ```
 pd -alsa -nogui -r 44100 -blocksize 64 -audiobuf 20 -audioadddev AudioBox adc_test.pd
@@ -8,8 +12,14 @@ best perfromnace
 pd -alsa -nogui -r 44100 -blocksize 64 -audiobuf 35 -audioadddev AudioBox adc_test.pd
 pd -alsa  -nogui -r 44100 -blocksize 64 -audiobuf 35 -audioadddev AudioBox puredata_file/BBmixerOptimise.pd
 
-pd -oss -nogui -rt  BBmixerOptimise.pd
+pd -alsa -rt  -nogui -r 44100 -blocksize 64 -audiobuf 35 -audioadddev AudioBox BBmixerLooperUndo.pd
+
+pd -oss -rt -nogui  -r 44100 -blocksize 128 -audiobuf 50 ./puredata_file/BBmixerLooperUndo.pd
+pd -oss -rt -nogui  -r 44100 -blocksize 32 -audiobuf 32 ./puredata_file/BBmixerLooperUndo.pd
+pd -oss -rt -nogui  -r 44100 -blocksize 32 -audiobuf 4 ./puredata_file/BBmixerLooperUndo.pd
 pd -oss -nogui -rt BBmixerOptimise.pd
+pd -oss -rt -nogui  -r 44100 -blocksize 16 -audiobuf 10 ./puredata_file/BBmixerLooperUndo.pd
+pd -oss -nrt -nogui  -r 44100 -blocksize 4 -audiobuf 5 ./puredata_file/BBmixerLooperUndo.pd
 ```
 #HEAVY convert pd to C++
 ***https://github.com/enzienaudio/hvcc/blob/master/docs/01.introduction.md#what-is-heavy***
@@ -70,7 +80,7 @@ To display PD
 
 ```
 sudo sysctl net.inet.ip.forwarding=1
- echo "nat on en0 from en5:network to any -> (en0)" | sudo pfctl -f - -e
+echo "nat on en0 from en5:network to any -> (en0)" | sudo pfctl -f - -e
 ```
 
 6. ==> ON BEAGLEBONE, To Enable INTERNET DO:
@@ -342,6 +352,8 @@ crontab -e
 ```
 
 ##in root cd ~/ to run @reboot in crontab -e
+
+ @reboot ./startup.sh
 touch startup.sh
 
 chmod +x startup.sh
@@ -635,6 +647,11 @@ noxrun
 ```
 jackd -P75  -d alsa -d hw:1 -p256  -D -n2 -r44100 -m -s -S
 jackd -P75  -d alsa  -d hw:1 -p64  -D -n3  -r44100 -m -s -S
+working glitch
+jackd -P75  -dalsa -dhw:1 -r44100 -p512 -n3
+jackd -R -P75  -dalsa -dhw:1 -r44100 -p2048 -n5
+jackd -R  -dalsa -dhw:1,0 -r44100 -p2048 -n6 -m -s 
+ jackd -R  -dalsa -dhw:1,0 -r44100 -p256 -n3 -s -m
 ```
 
 
