@@ -1,4 +1,4 @@
-#N canvas 133 51 1325 808 12;
+#N canvas 115 23 1325 808 12;
 #X declare -lib zexy;
 #X obj 16 471 *~;
 #X obj 22 874 dac~;
@@ -8,7 +8,7 @@
 #X obj 742 552 bng 60 250 50 0 empty empty Clear/Reset_Loop 17 7 0
 10 -258113 -1 -1;
 #N canvas 554 199 698 649 metrolooper 0;
-#X floatatom 403 87 5 0 0 0 - - -, f 5;
+#X floatatom 403 87 5 0 0 0 - - -;
 #X obj 403 55 expr (60/$f1)*1000;
 #X text 521 57 convert to ms;
 #X text 446 88 ms;
@@ -31,10 +31,10 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 87 200 + 1;
 #X obj 217 444 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 20 510 5 0 0 0 - - -, f 5;
+#X floatatom 20 510 5 0 0 0 - - -;
 #X obj 513 422 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 365 508 5 0 0 0 - - -, f 5;
+#X floatatom 365 508 5 0 0 0 - - -;
 #X obj 365 474 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
 #X text 534 421 Arm Stop Rec;
 #X obj 21 472 expr if (($f3 == 1 && $f2 == $f1) \, 1 \, 0);
@@ -107,7 +107,7 @@ volume) in 20 ms after waiting 20 ms;
 #X restore 1083 607 pd metrolooper;
 #X obj 1148 486 tgl 60 0 empty empty Start_Metro_To_Rec 17 7 0 10 -4032
 -1 -1 0 1;
-#X floatatom 1285 495 5 0 0 2 BPM - -, f 5;
+#X floatatom 1285 495 5 0 0 2 BPM - -;
 #X obj 911 672 tgl 25 0 empty empty REC?over 17 7 0 10 -4034 -1 -1
 0 1;
 #X obj 1099 692 s metro;
@@ -119,7 +119,7 @@ volume) in 20 ms after waiting 20 ms;
 #X msg 992 543 8;
 #X obj 911 610 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 911 630 5 0 0 0 - - -, f 5;
+#X floatatom 911 630 5 0 0 0 - - -;
 #X obj 911 549 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 944 564 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -581,7 +581,7 @@ volume) in 20 ms after waiting 20 ms;
 #X msg 1029 29 connect 192.168.100.30 8006;
 #X obj 846 699 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 846 743 5 0 0 0 - - -, f 5;
+#X floatatom 846 743 5 0 0 0 - - -;
 #X obj 846 719 del 100;
 #X obj 263 420 r RecBang;
 #X obj 281 444 r BangStopRec;
@@ -598,7 +598,7 @@ volume) in 20 ms after waiting 20 ms;
 #X msg 106 284 \$1;
 #X obj 284 511 v loopernum;
 #X msg 284 583 \$1;
-#X floatatom 102 241 5 0 0 0 Count - -, f 5;
+#X floatatom 102 241 5 0 0 0 Count - -;
 #X obj 442 368 writesf~;
 #X msg 699 313 stop;
 #X obj 698 650 readsf~;
@@ -611,7 +611,7 @@ volume) in 20 ms after waiting 20 ms;
 #X text 847 601 stop loop;
 #X msg 517 296 \$1;
 #X msg 697 592 \$1;
-#X floatatom 519 245 5 0 0 0 - - -, f 5;
+#X floatatom 519 245 5 0 0 0 - - -;
 #X obj 97 139 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 518 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -651,8 +651,8 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 221 103 sel;
 #X msg 244 43 0;
 #X msg 286 41 1;
-#X floatatom 238 78 5 0 0 0 - - -, f 5;
-#X floatatom 171 71 5 0 0 0 - - -, f 5;
+#X floatatom 238 78 5 0 0 0 - - -;
+#X floatatom 171 71 5 0 0 0 - - -;
 #X obj 221 150 print L;
 #X obj 276 122 t b;
 #X obj 291 160 print R;
@@ -660,7 +660,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 283 12 inlet;
 #X obj 244 208 outlet;
 #X obj 310 218 outlet;
-#X floatatom 377 221 5 0 0 0 - - -, f 5;
+#X floatatom 377 221 5 0 0 0 - - -;
 #X msg 427 195 1;
 #X obj 385 273 outlet;
 #X msg 370 190 0;
@@ -691,14 +691,14 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 404 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 404 59 v selec;
-#X floatatom 405 85 5 0 0 0 - - -, f 5;
+#X floatatom 405 85 5 0 0 0 - - -;
 #X obj 404 118 route 0 1;
 #X obj 876 527 r resetMetro;
 #X obj 395 556 r resetMetro;
 #X obj 94 78 v loopernum;
 #X obj 309 61 v selec;
 #X obj 101 170 v loopernum;
-#X floatatom 838 174 5 0 0 0 - - -, f 5;
+#X floatatom 838 174 5 0 0 0 - - -;
 #X obj 937 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 837 310 s resetselec;
@@ -708,8 +708,8 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 563 245 print loop2;
 #X obj 102 207 + 1;
 #X obj 162 216 v loopernum;
-#X floatatom 284 559 5 0 0 0 Count - -, f 5;
-#X floatatom 697 567 5 0 0 0 - - -, f 5;
+#X floatatom 284 559 5 0 0 0 Count - -;
+#X floatatom 697 567 5 0 0 0 - - -;
 #X obj 739 540 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
 -1 -1;
 #X obj 345 567 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
@@ -723,7 +723,7 @@ volume) in 20 ms after waiting 20 ms;
 -1 -1;
 #X obj 1084 241 v loopernum;
 #X obj 1036 21 inlet;
-#X floatatom 1038 174 5 0 0 0 - - -, f 5;
+#X floatatom 1038 174 5 0 0 0 - - -;
 #X obj 1037 310 s resetselec;
 #X obj 1035 199 t b b f;
 #X obj 1036 113 v loopernum;
