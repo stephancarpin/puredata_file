@@ -1,6 +1,6 @@
 #BeagleBone Login Using ssh usb to bBB
 machinekit: qwer1234
-
+mac
 alsacap
 
 
