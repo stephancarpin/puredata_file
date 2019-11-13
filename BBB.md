@@ -604,6 +604,7 @@ Linux beaglebone 4.14.108-ti-r113 #1 SMP PREEMPT Wed Jul 31 00:01:10 UTC 2019 ar
 
 
 
+
 ##VERY IMpotsnat 
 #http://www.bootembedded.com/embedded-linux/building-embedded-linux-scratch-beaglebone-black/
 
