@@ -12,6 +12,7 @@ echo "\ngood:)\m" > ./puredata_file/loggg.txt
 #sudo systemctl disable avahi-daemon.socket
 #sudo service avahi-daemon stop
 sudo modprobe snd-pcm-oss
-sleep 10
+#0sleep 10
 #pd -oss -nrt -nogui  -r 44100 -blocksize 32 -audiobuf 10 ./puredata_file/BBmixerLooperUndo.pd
 #pd -oss -nrt -nogui  -r 44100 -blocksize 8 -audiobuf 10 ./puredata_file/BBmixerLooperUndo.pd
+#pd -oss -nrt -nogui  -alsamidi -mididev 1  -r 44100 -blocksize 32 -audiobuf 10 ./puredata_file/LooperUndoExtened.pd
