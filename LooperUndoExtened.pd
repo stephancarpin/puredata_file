@@ -1,4 +1,4 @@
-#N canvas 118 24 1440 808 12;
+#N canvas 0 23 1440 808 12;
 #X declare -lib zexy;
 #X obj 15 590 *~;
 #X obj 811 1295 dac~;
@@ -13,7 +13,7 @@
 #X text 521 57 convert to ms;
 #X text 446 88 ms;
 #X obj 372 133 metro;
-#X obj 376 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 376 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 325 93 on/off;
 #X text 414 132 outputs bang every 'x' ms;
@@ -108,7 +108,7 @@ volume) in 20 ms after waiting 20 ms;
 #X connect 48 0 23 1;
 #X restore 1083 607 pd metrolooper;
 #X obj 1131 468 tgl 60 0 empty empty Start_Metro_To_Rec 17 7 0 10 -4032
--1 -1 0 1;
+-1 -1 1 1;
 #X floatatom 1283 527 5 0 0 2 BPM - -;
 #X obj 911 672 tgl 25 0 empty empty REC?over 17 7 0 10 -4034 -1 -1
 0 1;
@@ -574,7 +574,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 981 1172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 986 1202 v loopernum;
-#N canvas 63 28 1377 803 wavelooper1 0;
+#N canvas 63 28 1377 803 wavelooper1 1;
 #X obj 29 345 writesf~;
 #X msg 286 311 stop;
 #X obj 285 636 readsf~;
@@ -1270,7 +1270,7 @@ volume) in 20 ms after waiting 20 ms;
 -1 -1;
 #X obj 526 384 spigot;
 #X obj 545 319 tgl 20 0 empty empty LoopSelect 10 7 0 10 -261682 -1
--1 0 1;
+-1 1 1;
 #X floatatom 689 346 5 0 0 0 - - -;
 #X obj 683 370 s selectl1;
 #X msg 29 553 1;
@@ -1322,15 +1322,15 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 871 907 atoi;
 #X obj 16 135 route input metro looper1 looper2 connection;
 #X obj 316 172 s connection;
-#X obj 779 354 r connection;
-#X msg 803 413 connect 192.168.100.30 8002;
+#X obj 766 278 r connection;
+#X msg 811 399 connect 192.168.100.30 8002;
 #X obj 326 189 route rec_ovr volume clear undo redo countarm countselect
 delete, f 62;
 #X obj 709 229 s deleteL1;
 #X obj 530 790 route rec_ovr volume clear undo redo countarm countselect
 delete;
 #X obj 787 860 s deleteL2;
-#X obj 780 382 route 1;
+#X obj 765 310 route 1;
 #X msg 767 434 connect 192.168.2.7 8005;
 #X obj 591 411 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -1629,7 +1629,7 @@ delete;
 #X obj 219 729 threshold~ 1 100 0.1 100;
 #X msg 272 764 open ./drum/kicks/Bass-Drum-1.wav;
 #X obj 357 977 vsl 18 80 -100 0 0 0 empty empty empty 0 -9 0 10 -228856
--1 -1 7900 1;
+-1 -1 6255 1;
 #X text 20 1115 3) float;
 #X text 20 1085 1) float;
 #X text 20 1100 2) float;
@@ -1644,6 +1644,7 @@ delete;
 #X text 85 1161 - rms average size in samples (default 512), f 46
 ;
 #X obj 145 928 else/compress~ -50 2 50 50 12 256;
+#X msg 780 364 connect 192.168.43.1 8005;
 #X connect 0 0 46 0;
 #X connect 0 0 48 1;
 #X connect 2 0 204 0;
@@ -1855,7 +1856,7 @@ delete;
 #X connect 186 5 162 0;
 #X connect 186 6 164 0;
 #X connect 186 7 187 0;
-#X connect 188 0 189 0;
+#X connect 188 0 220 0;
 #X connect 189 0 54 0;
 #X connect 190 0 193 0;
 #X connect 190 0 112 3;
@@ -1879,3 +1880,4 @@ delete;
 #X connect 205 0 200 0;
 #X connect 219 0 41 0;
 #X connect 219 1 206 0;
+#X connect 220 0 54 0;
