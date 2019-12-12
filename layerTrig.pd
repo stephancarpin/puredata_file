@@ -1,0 +1,35 @@
+#N canvas 258 183 556 357 10;
+#X obj 151 -5 notein;
+#X obj 167 84 moses 100;
+#X obj 167 155 moses 75;
+#X obj 212 181 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 233 9 127;
+#X msg 233 50 60;
+#X obj 167 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 233 29 85;
+#N canvas 581 370 450 300 trigger_samples_for_velocity_of_100-127 0
+;
+#X obj 45 29 inlet;
+#X restore 218 133 pd trigger_samples_for_velocity_of_100-127;
+#X obj 218 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 581 370 450 300 trigger_samples_for_velocity_of_75-100 0
+;
+#X obj 45 29 inlet;
+#X restore 212 204 pd trigger_samples_for_velocity_of_75-100;
+#N canvas 581 370 450 300 trigger_samples_for_velocity_of_0-75 0;
+#X obj 45 29 inlet;
+#X restore 167 234 pd trigger_samples_for_velocity_of_0-75;
+#X connect 0 1 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 9 0;
+#X connect 2 0 6 0;
+#X connect 2 1 3 0;
+#X connect 3 0 10 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 11 0;
+#X connect 7 0 1 0;
+#X connect 9 0 8 0;
