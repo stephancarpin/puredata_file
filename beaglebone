@@ -1,0 +1,385 @@
+
+
+
+
+
+
+
+
+Away
+
+
+Directory
+RECENT
+
+Lounge-ALL
+sarju dooly
+WebShop
+Lounge
+Wasseem Khayrattee
+TASKS_LIST
+yuhan
+TODO
+BeagleBone / Arduino
+#Wordpress
+Bouzer Man
+LIVE changeLog
+Tshirtcommerce
+#MEETINGS
+Shameem
+#Theme_WP
+STEP Project
+Life Mastery
+#WooCommerce
+Scrum Meeting
+Product Details
+TOKEN + LICENSE KEYS
+#TASKS
+#git
+#DevOps
+#MySQL
+Mantis | GITLAB
+Rtknitsltd
+HR InHouse Dev
+Movies & Music Fans
+Training
+#php
+Bitbucket Logs
+Geeks
+Invite people
+
+BeagleBone / Arduino
+Add a room topic
+
+
+
+
+BeagleBone / Arduino
+Welcome!
+This room's public so anyone can join. Get things started by adding some of your crew.
+
+Add people
+March 6
+
+Wasseem Khayrattee
+Mar 6, 4:05 PM
+/code
+alias bb="screen /dev/tty.usbmodem1423 115200"
+` alias bb="screen /dev/tty.usbmodem1423 115200" `
+
+Wasseem Khayrattee
+Mar 6, 4:16 PM
+LOGIN / PASSWORD   
+debian / temppwd
+March 7
+
+Wasseem Khayrattee
+Mar 7, 7:29 PM
+@vivian stephan carpin  let's keep all our workings here  
+
+Wasseem Khayrattee
+Mar 7, 7:29 PM (Edited)
+Login Credentials for debian beagle
+1
+2
+3
+ssh debian@192.168.7.2
+pwd=> temppwd
+root/root
+==> ON MACBOOK, To FOrward INternet to Beagle Via USB, On TERMINAL DO:
+1
+2
+$ sudo sysctl net.inet.ip.forwarding=1
+$ echo "nat on en0 from en5:network to any -> (en0)" | sudo pfctl -f - -e
+
+pfctl: Use of -f option, could result in flushing of rules
+present in the main ruleset added by the system at startup.
+See /etc/pf.conf for further details.
+No ALTQ support in kernel
+ALTQ related functions disabled
+pf enabled
+
+==> ON BEAGLEBONE, To Enable INTERNET DO:
+1
+2
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+/sbin/route add default gw 192.168.7.1
+
+TO ADD WIFI MODULE DO:
+1
+$ nano /boot/uEnv.txt
+then add line:
+1
+dtb=am335x-boneblack-wireless.dtb
+
+
+
+Wifi COmmands
+1
+2
+3
+4
+5
+6
+7
+8
+9
+##connman: WiFi
+#connmanctl
+#connmanctl> tether wifi off
+#connmanctl> enable wifi
+#connmanctl> scan wifi
+#connmanctl> services
+#connmanctl> agent on
+#connmanctl> connect wifi_*_managed_psk
+#connmanctl> quit
+
+
+Wasseem Khayrattee
+Mar 7, 7:53 PM
+Things to consider:
+create an "imaging" of the whole BeagleBone Black Wirless setup that we have currently installed - we should do this after every major feature installs..
+The how-to approach is here: https://stackoverflow.com/questions/17834561/duplicating-identical-beaglebone-black-setups
+the importance here is that, I know we will need to re-install at some point, whether os corrupted or simply we have messed up the OS.. so we need a quick way to re-install everything with all the stuffs we did install..
+March 8
+
+Wasseem Khayrattee
+Mar 8, 11:10 AM
+Let's Try to Use LMDB as our Key/Value Store
+https://github.com/tspurway/pymdb-lightning
+or
+https://github.com/dw/py-lmdb/
+
+Wasseem Khayrattee
+Mar 8, 11:31 AM
+Installing LMDB
+1
+2
+$ git clone https://github.com/wizawu/lmdb.git
+$ git clone https://github.com/tspurway/pymdb-lightning.git
+
+Wasseem Khayrattee
+Mar 8, 1:02 PM
+Install Cython first
+1
+$ apt-get install cython
+
+Wasseem Khayrattee
+Mar 8, 1:12 PM
+Compile MDB & Install Its Python Wrapper
+1
+2
+3
+4
+5
+6
+7
+$ cd mdb/libraries/liblmdb/
+$ make
+$ make install
+
+$ cd ../../../pymdb-lightning
+$ python setup.py build_ext --inplace
+$ python setup.py install
+Usage of Python wrapper 
+
+Using Writer and Reader
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+>>> import mdb
+>>> writer = mdb.Writer('/tmp/mdbtest')
+>>> writer.put('foo', 'bar')
+>>> writer.mput({"key": "value", "egg": "spam"})
+>>> writer.close()
+>>> reader = mdb.Reader('/tmp/mdbtest')
+>>> reader.get('foo')
+>>> for key, value in reader.iteritems():
+...   print key, value
+>>> reader.close()
+Using Integer Key
+1
+2
+3
+4
+5
+6
+7
+8
+>>> writer = mdb.Writer('/tmp/mdbtest', dup=True, int_key=True)
+>>> writer = writer.put(1, 'foo')
+>>> writer = writer.put(1, 'bar')  # append a duplicate key
+>>> writer.close()
+>>> reader = mdb.DupReader('/tmp/mdbtest', int_key=True)
+>>> for v in reader.get(1):
+...   print v
+>>> reader.close()
+Using Low-level MDB
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+>>> env = mdb.Env('/tmp/mdbtest')
+>>> txn = env.begin_txn()
+>>> db = env.open_db(txn)
+>>> db.put(txn, 'hi', 'assinine')
+>>> txn.commit()
+>>> txn = env.begin_txn()
+>>> print '"%s"' % db.get(txn, 'hi')  # --> assinine
+>>> txn.close()
+>>> db.close()
+>>> env.close()
+Ref: https://github.com/tspurway/pymdb-lightning
+March 9
+
+Wasseem Khayrattee
+Mar 9, 11:24 AM
+Install
+1
+$ apt-get install dirmngr
+March 12
+
+Wasseem Khayrattee
+Mar 12, 2:00 AM
+download free ebook for coding C on Arduino,  @vivian stephan carpin  
+https://www.raspberrypi.org/magpi/issues/essentials-c-v1/
+
+Wasseem Khayrattee
+Mar 12, 2:07 AM
+connecting Rasberry Pie 3 with Arduino: http://www.instructables.com/id/Connect-Your-Raspberry-Pi-and-Arduino-Uno/
+
+Wasseem Khayrattee
+Mar 12, 2:13 AM
+https://raspberrypi.stackexchange.com/questions/43750/how-to-read-data-from-arduino-with-raspberry-pi-via-i2c
+NOTE:
+be careful, Raspberry Pi will burn if you put 5V at its 3.3V power pins
+
+Wasseem Khayrattee
+Mar 12, 2:25 AM (Edited)
+This one is also nice to make Arduino communitcate with Rasberry
+https://oscarliang.com/connect-raspberry-pi-and-arduino-usb-cable/
+March 13
+
+Wasseem Khayrattee
+Mar 13, 7:00 PM
+Python
+Note: use Python 2.7 only
+
+Wasseem Khayrattee
+Mar 13, 7:01 PM (Edited)
+LMDB build with python 2.7.13
+(for reference)
+
+Wasseem Khayrattee
+Mar 13, 7:34 PM
+@vivian stephan carpin  we will probably use only Python.. even for the web..
+A good candidate is this Python web framework => http://flask.pocoo.org/
+The structure of this framework and coding seems similar to the way I code PHP..
+Let's see tomorrow, we do a sample test  
+March 14
+
+Wasseem Khayrattee
+Mar 14, 4:46 AM
+ssh pi@192.168.0.143
+raspberry
+
+Wasseem Khayrattee
+Mar 14, 4:59 AM
+1
+$ sudo systemctl enable netfilter-persistent
+
+sarju dooly
+Mar 14, 1:58 PM
+https://www.youtube.com/watch?v=vx23QVMstro
+Connect to internet
+March 15
+
+sarju dooly
+Mar 15, 4:45 PM
+https://github.com/IanHarvey/bluepy/blob/master/README.md
+
+sarju dooly
+Mar 15, 5:15 PM
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+from bluepy.btle import Scanner, DefaultDelegate
+
+class ScanDelegate(DefaultDelegate):
+    def __init__(self):
+        DefaultDelegate.__init__(self)
+
+    def handleDiscovery(self, dev, isNewDev, isNewData):
+        if isNewDev:
+            print "Discovered device", dev.addr
+        elif isNewData:
+            print "Received new data from", dev.addr
+
+scanner = Scanner().withDelegate(ScanDelegate())
+devices = scanner.scan(10.0)
+
+for dev in devices:
+    print "Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi)
+    for (adtype, desc, value) in dev.getScanData():
+        print "  %s = %s" % (desc, value)
+March 19
+
+Wasseem Khayrattee
+Mar 19, 5:57 PM
+top
+July 30
+
+vivian stephan carpin
+Jul 30, 3:54 PM
+https://www.fullstackpython.com/flask.html
+July 31
+
+vivian stephan carpin
+Jul 31, 11:29 AM
+##BeagleBone access
+Password: BeagleBone
+August 6
+
+vivian stephan carpin
+Aug 6, 3:09 PM
+##Change date to local timeZone
+
+sudo apt-get install ntp
+
+
+
+
+
+
+
+0
+Flag notifications
