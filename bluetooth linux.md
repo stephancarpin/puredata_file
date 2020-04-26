@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=CB1E4Ir3AV4
+<<<<<<< HEAD
 
 
 #working status
@@ -90,10 +91,13 @@ void MIDImessage(int command, int MIDInote, int MIDIvelocity) {
 #Some Bluetooth cmd
 
 ```
+=======
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 sudo system enbale bluetooth
 sudo system restart bluetooth
 sudo systemctl status bluetooth
  
+<<<<<<< HEAD
 sudo bluetoothctl -v 
 ```
 
@@ -154,3 +158,6 @@ pd -oss -nrt -nogui  -alsamidi -mididev 1  -r 44100 -blocksize 32 -audiobuf 10 .
 
 
 
+=======
+bluetoothctl
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749

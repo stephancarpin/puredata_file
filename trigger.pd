@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #N canvas 212 27 1278 778 12;
+=======
+#N canvas 589 110 1278 778 12;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 40 414 readsf~;
 #X msg 42 380 start;
 #X msg 91 380 stop;
@@ -8,7 +12,11 @@
 #X obj 173 16 adc~ 1 2;
 #X obj 206 117 *~;
 #X obj 266 -8 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+<<<<<<< HEAD
 -1 -1 3200 1;
+=======
+-1 -1 0 1;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 408 232 env~ 128;
 #X obj 408 302 dbtorms;
 #X obj 518 276 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
@@ -20,16 +28,28 @@
 #X obj 90 553 env~ 128;
 #X obj 88 578 - 100;
 #X obj 384 376 snapshot~;
+<<<<<<< HEAD
 #X floatatom 384 426 5 0 0 0 - - -;
+=======
+#X floatatom 384 426 5 0 0 0 - - -, f 5;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 384 337 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X msg 86 470 open ./drum/kicks/Bass-Drum-3.wav;
 #X msg 763 73 set open ./percussion/Alesis-Fusion-Timpani.wav;
+<<<<<<< HEAD
 #X msg 679 30 set open ./drum/kicks/Bass-Drum-3.wav;
 #X msg 685 51 set open ./drum/kicks/Boom-Kick.wav;
 #X obj 689 138 s kick;
 #X obj 144 438 r kick;
 #X msg 678 9 set open ./drum/kicks/Deep-Kick.wav;
+=======
+#X msg 678 28 set open ./drum/kicks/Bass-Drum-3.wav;
+#X msg 684 49 set open ./drum/kicks/Boom-Kick.wav;
+#X obj 688 136 s kick;
+#X obj 144 438 r kick;
+#X msg 677 7 set open ./drum/kicks/Deep-Kick.wav;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X msg 222 199 1;
 #X msg 252 198 0;
 #X obj 208 252 print rest;
@@ -37,7 +57,11 @@
 #X obj 198 645 vline~;
 #X obj 302 112 mtof;
 #X obj 356 75 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+<<<<<<< HEAD
 -1 -1 8700 1;
+=======
+-1 -1 0 1;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 155 158 lop~;
 #X obj 592 416 readsf~;
 #X msg 594 382 start;
@@ -56,7 +80,11 @@
 #X obj 642 555 env~ 128;
 #X obj 640 580 - 100;
 #X obj 936 378 snapshot~;
+<<<<<<< HEAD
 #X floatatom 936 428 5 0 0 0 - - -;
+=======
+#X floatatom 936 428 5 0 0 0 - - -, f 5;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 936 339 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 696 440 r kick;
@@ -67,14 +95,22 @@
 #X obj 750 647 vline~;
 #X obj 824 154 mtof;
 #X obj 878 117 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+<<<<<<< HEAD
 -1 -1 12700 1;
+=======
+-1 -1 0 1;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X obj 676 200 hip~;
 #X msg 616 472 open ./drum/snare/Ensoniq-ESQ-1-Snare-2.wav;
 #X obj 668 225 threshold~ 0.5 100 1 100;
 #X obj 116 223 threshold~ 0.5 100 1 100;
 #X obj 567 146 *~;
 #X obj 627 21 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+<<<<<<< HEAD
 -1 -1 2600 1;
+=======
+-1 -1 0 1;
+>>>>>>> 9bd26d3388d155ecd64d73d50f6c30fb1d017749
 #X connect 0 0 12 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
