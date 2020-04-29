@@ -8,13 +8,13 @@
 #X obj 176 581 *~;
 #X obj 794 560 bng 60 250 50 0 empty empty Clear/Reset_Loop 17 7 0
 10 -258113 -1 -1;
-#N canvas 333 60 698 649 metrolooper 0;
+#N canvas 331 62 698 649 metrolooper 1;
 #X floatatom 403 87 5 0 0 0 - - -, f 5;
 #X obj 403 55 expr (60/$f1)*1000;
 #X text 521 57 convert to ms;
 #X text 446 88 ms;
 #X obj 372 133 metro;
-#X obj 376 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 376 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 325 93 on/off;
 #X text 414 132 outputs bang every 'x' ms;
@@ -66,7 +66,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 135 561 print;
 #X obj 146 205 s bar;
 #X text 558 321 multiply sine tone by amplitude envelope;
-#X obj 494 324 *~ -0.2;
+#X obj 496 323 *~ 4;
 #X connect 0 0 4 1;
 #X connect 1 0 0 0;
 #X connect 4 0 44 0;
@@ -112,7 +112,7 @@ volume) in 20 ms after waiting 20 ms;
 #X connect 52 0 14 1;
 #X restore 1083 607 pd metrolooper;
 #X obj 1131 469 tgl 60 0 empty empty Start_Metro_To_Rec 17 7 0 10 -4032
--1 -1 0 1;
+-1 -1 1 1;
 #X floatatom 1283 527 5 0 0 2 BPM - -, f 5;
 #X obj 911 672 tgl 25 0 empty empty REC?over 17 7 0 10 -4034 -1 -1
 0 1;
@@ -578,7 +578,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 981 1172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 986 1202 v loopernum;
-#N canvas 59 57 1377 803 wavelooper1 0;
+#N canvas 57 59 1377 803 wavelooper1 0;
 #X obj 29 345 writesf~;
 #X msg 286 311 stop;
 #X obj 285 636 readsf~;
@@ -718,7 +718,7 @@ volume) in 20 ms after waiting 20 ms;
 #X msg 1033 263 0;
 #X obj 881 557 r stoploops;
 #X obj 396 533 r stoploops;
-#X obj 125 768 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 125 768 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 162 692 0;
 #X obj 171 777 outlet Rec;
@@ -738,7 +738,7 @@ volume) in 20 ms after waiting 20 ms;
 #X obj 621 768 outlet countmax;
 #X obj 1037 143 expr if($f1>$f2 \, $f2 \, $f1);
 #X obj 1291 64 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 1;
 #X floatatom 1242 177 5 0 0 0 - - -, f 5;
 #X obj 1241 200 t b b f;
 #X msg 1239 264 0;
@@ -893,7 +893,7 @@ volume) in 20 ms after waiting 20 ms;
 #X restore 309 533 pd wavelooper1;
 #X obj 547 1276 s~ wavelooper2;
 #X obj 818 1180 r~ wavelooper2;
-#N canvas 1 110 1425 723 wavelooper2 0;
+#N canvas 1 112 1425 723 wavelooper2 0;
 #X obj 29 345 writesf~;
 #X msg 286 311 stop;
 #X obj 284 640 readsf~;
@@ -1629,7 +1629,7 @@ delete;
 #X obj 219 729 threshold~ 1 100 0.1 100;
 #X msg 272 764 open ./drum/kicks/Bass-Drum-1.wav;
 #X obj 357 977 vsl 18 80 -100 0 0 0 empty empty empty 0 -9 0 10 -228856
--1 -1 7900 1;
+-1 -1 0 1;
 #X text 20 1115 3) float;
 #X text 20 1085 1) float;
 #X text 20 1100 2) float;
